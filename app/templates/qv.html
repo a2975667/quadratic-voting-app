@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1,
+            shrink-to-fit=no">
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" href="../static/qv.css">        
+        <title>Survey</title>
+    </head>
+    <body>
+        <div id="cover"><img id="loading_img" src='/static/loading.gif' style="min-width: 100%;"></div>
+        <!--Section with all the text and explanation-->
+        <div class="container">
+            <h1>Quadratic Voting</h1>
+
+            <div id="binary" style="display: none">
+                <h2>Binary Quadratic Voting</h2>
+                <p>Forgot How Quadratic Voting works? 
+                    <br>
+                    <div class='btn' id="bqv_btn" onclick='toggle("bqv_btn", "bqv_text")'>Show</div>
+                </p>
+                
+                <div id="bqv_text" style="display: none">
+                <p>
+                    For the following question, you will use a <b>Binary Quadratic Voting</b> method to express your preferences.
+                    <br /><br />
+                    You will be given a budget of a certain number of voice credits. You will use the available credits to cast votes.
+                    If you are willing to share the specified kind of information with XYZ Advertising Company,
+                    you can cast a number of <b>upvotes using the “+1” sign</b>. If you are against the idea of sharing a kind of information,
+                    you can cast a number of <b>downvotes using the “-1” sign</b>.
+                    If you are neutral or feel less strongly for a kind of information compared to others, you can choose to cast <b>no vote</b>.
+
+                    <br /><br />
+                    Based on the intensity of your opinion, you can cast 1 or more upvotes or downvotes for each kind of information.
+                    The stronger your opinion is, the more votes you can put on one option.
+                    At the same time, as the number of votes increases, the voice credits it costs increases quadratically,
+                    i.e. <b>X votes will cost X^2 (square of X) credits</b>.
+                    The total cost of some common number of votes is specified in the table below:
+                </p>
+                <table style="width:100%">
+                    <tr>
+                        <th>Number of up or down votes</th>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                        <td>9</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <th>Cost in number of voice credits</th>
+                        <td>1</td>
+                        <td>4</td>
+                        <td>9</td>
+                        <td>16</td>
+                        <td>25</td>
+                        <td>36</td>
+                        <td>49</td>
+                        <td>64</td>
+                        <td>81</td>
+                        <td>100</td>
+                    </tr>
+                </table>
+                <br>
+                <p>
+                    <br/>
+                    <b>You cannot exceed the budget of given voice credits for each question,
+                        but you do not have to use up all the available credits either.</b>
+                    You can see the total number of voice credits you have and how many credits you have spent
+                    already in the <b>“Summary” section</b> below.
+                    <br /><br />
+                    <b>As an example</b>, imagine that you are given a total of 5 voice credits to vote on information A, B and C.
+                    <br /><br />
+                    <b>Case 1:</b> If you feel equally strongly about all of them, one way to vote is to cast 1 upvote or downvote on each kind of information,
+                    which will cost 3 voice credits in total.
+                    <br />
+                    <b>Case 2:</b> If you feel particularly strongly about information A but not so much for C, another way to vote is to cast 2 votes (cost 4 credits) on A, 1 vote (cost 1 credit) on B, and 0 vote (cost 0 credit) on C, which will cost 5 credits in total.
+                    In the second case, you cannot cast any more vote on C because the votes on A and B already use up the budget of 5 credits.
+                </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container summary">
+            <h2>Summary</h2>
+            <div>
+                <p style='display:inline'>Used </p>
+                <p id="used_votes" style='display:inline'></p>
+                <p style='display:inline'> voice credits out of </p>
+                <p id="total_votes" style='display:inline'></p>
+            </div>
+            <div class="progress">
+                <div id='bar' class="determinate" style="width: 0%"></div>
+            </div>
+            <div class='btn' id="other">Submit</div>
+            <br>
+            <h4>Note that you cannot come back to this page after you submit.</h4>
+        </div>
+
+        <!--Section with all the questions-->
+        <form id='qv_form' class="container">
+            <div>
+                {% for question in q_list %}
+                    <!--if question is QV-->
+                    {% if question['type'] == 'qv' %}
+                    <h3>{{ question['question'] }}</h3>
+                    <div label class="">
+                        {% for option in question['options'] %}
+                        <div class='option'>
+                            <a class="light-blue lighten-5 waves-effect waves-light plus qvbtn btn">+1</a>
+                            <a class="light-blue lighten-5 waves-effect waves-light minus qvbtn btn">-1</a>
+                            <h4 class="qv_option" style="display:inline; margin-left:1em; margin-right:1em;">{{ option }}</h4>
+                            <div class='placeholder' style="display:inline;"></div>
+                            <!-- <i class="far fa-check-circle icon" style="display:inline; color:green; vertical-align: text-bottom;"></i>
+                            <i class="far fa-times-circle icon" style="display:inline; color:red; vertical-align: text-bottom;"></i> -->
+                            <br>
+                            <p style="display:inline">Voted</p>
+                            <input class="qv_vote" name={{option}} type='qv' style="display:inline" value=0 readonly>
+                            <p style="display:inline"> , costs</p>
+                            <p class="qv_cost" style='display:inline' value=0 readonly>0</p>
+                            <p style="display:inline">voice credits</p>
+                        </div>
+                        <br>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    
+                    <!--if question is puretext-->
+                    {% if question['type'] == 'text' %}
+                    
+                    <h2 class="">{{ question['title']|safe }}</h2>
+                    <p style="">{{ question['content']|safe }}</p>
+                    {% endif %}
+
+                    <!--if question is textinput-->
+                    {% if question['type'] == 'short_question' %}
+                    <h3>{{ question['question'] }}</h3>
+                    <div class="input-field col s12">
+                            <textarea name='result' type='text' id="textarea2" class="materialize-textarea"></textarea>
+                    </div>
+                    {% endif %}
+
+                    <!--if question is choice-->
+                    {% if question['type'] == 'choice' %}
+                    <h3>{{ question['question'] }}</h3>
+                    <!-- <div class="input-field col s12"> -->
+                    <select name='result' type='choice'>
+                        {% for option in question['options'] %}
+                            <option value={{option}}>{{ option }}</option>                
+                        {% endfor %}
+                    </select>
+                    <!-- </div> -->
+                    {% endif %}
+                {% endfor %}
+            
+            </div>
+            <input type="submit" style="display: none">
+
+        <br><br><br>
+            <!-- <input type="submit"> -->
+        </form>
+
+
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+        <script src="../static/jquery-magnet.js"></script>
+        <script src="../static/{{filename}}"></script>
+        <script src="../static/qv_general.js"></script>
+        
+    </body>
+
+</html>

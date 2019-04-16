@@ -1,0 +1,118 @@
+input {
+    background-color: transparent;
+    border: 0px solid;
+    width: 1em;
+    color: black;
+}
+
+.btn {
+    background-color: #3BA7BF;
+}
+
+/* .plus_btn {
+    font: bold 11px Arial;
+    text-decoration: none;
+    background-color: #EEEEEE;
+    color: #333333;
+    padding: 1px 3px 1px 3px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+} */
+
+.qvbtn {
+    padding: 1px 8px 1px 8px;
+    width: 3em;
+}
+
+h1 {
+    font-size: 2.8rem;
+}
+
+h2 {
+    font-size: 2.2rem;
+}
+
+h3 {
+    font-size: 1.6rem;
+}
+
+h4 {
+    font-size: 1.2rem
+}
+
+tr{
+    text-align: center;
+    vertical-align: middle;
+}
+
+td{
+    text-align: center;
+    vertical-align: middle;
+}
+
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+}
+
+.qv_title {
+    margin: 0.3em;
+}
+
+.summary {
+    background: rgba(193, 238, 243, 1);
+    margin-top: 2em;
+    margin-bottom: 3em;
+    padding-top: 0.4em;
+    padding-bottom: 3em;
+}
+
+.progress {
+    height: 10px;
+    background: rgb(91, 197, 221);
+}
+
+.progress .determinate {
+    background: #195973;
+}
+
+.option {
+    margin: 0.5em;
+}
+
+.qv_option {
+    vertical-align: text-bottom;
+}
+
+#cover {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(128, 128, 128, 0.8);
+    z-index: 9999;
+}
+
+/* Color Theme Swatches in Hex */
+.Dark-blue-ocean-surface-seen-from-underwater-1-hex {
+    color: #195973;
+}
+
+.Dark-blue-ocean-surface-seen-from-underwater-2-hex {
+    color: #3BA7BF;
+}
+
+.Dark-blue-ocean-surface-seen-from-underwater-3-hex {
+    color: #053A40;
+}
+
+.Dark-blue-ocean-surface-seen-from-underwater-4-hex {
+    color: #63E4F2;
+}
+
+.Dark-blue-ocean-surface-seen-from-underwater-5-hex {
+    color: #66D9D9;
+}

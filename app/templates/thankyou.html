@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137859033-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-137859033-1');
+        </script>
+        <!--End Script-->
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1,
+            shrink-to-fit=no">
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="/static/qv.css">
+        <title>Survey</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>One last step</h1>
+        </div>
+        <div class="container">
+            <h3>You must click the complete button here to record the results.</h3>
+            <h3>This is the end of this survey.</h3>
+            <h3>Thank you</h3>
+        </div>
+        
+        <div class="container">
+            <button id='complete' onclick="myFunction()" class="waves-effect waves-light btn-small" href='/'>Complete</button>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+        <script>
+            
+
+
+            function myFunction() {
+                Cookies.remove('next');
+                var path = Cookies.get('script')
+                var data = {'path': Cookies.get('script'),
+                            'userid':Cookies.get('UserId')}
+                $.ajax({
+                    type: "POST",
+                    url: "/api/updateScript",
+                    data: JSON.stringify(data),
+                    success: function(result) {
+                        Cookies.remove('script');
+                        Cookies.remove('UserId');
+                        window.location.href = 'https://google.com';
+                    },
+                    dataType: "json",
+                    contentType: 'application/json'
+                });
+                window.location.href = 'https://google.com';
+            }
+            
+        </script>
+    </body>
