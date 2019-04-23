@@ -2,7 +2,7 @@
     {
         "type":"text",
         "title":"",
-        "content": "<ul style='margin-left:1em; font-size:1.2em'> <li> Yuxin & Zecheng: A survey of recommendation in social network under resource constraints. </li> <li> Junting: Survey on decision heuristicsㄡ </li> <li> Sneha & Grace: Title </li> </ul>"
+        "content": "<ul style='margin-left:1em; font-size:1.2em'> <li> Yuxin & Zecheng: A survey of recommendation in social network under resource constraints. </li> <li> Junting: Survey on decision heuristicsㄡ </li> <li> Sneha & Grace: N/A </li> </ul>"
     },
     {
         "qid":1,
@@ -47,7 +47,7 @@
     {
         "type": "text",
         "title": "",
-        "content": "<ul style='margin-left:1em; font-size:1.2em'> <li> Surya: A review of peer-review, by a peer. </li> <li> Deepak: Understanding user update behavior in iOS devices. </li> <li> Raymond: Title </li> </ul>"
+        "content": "<ul style='margin-left:1em; font-size:1.2em'> <li> Surya: A review of peer-review, by a peer. </li> <li> Deepak: Understanding user update behavior in iOS devices. </li> <li> Raymond: Survey of Literature on Collective Action </li> </ul>"
     },
     {
         "qid":4,
