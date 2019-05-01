@@ -7,9 +7,9 @@ import uuid
 from pprint import pprint
 import random
 
-filename = os.path.join(app.static_folder, 'qv.json')
-questions = open(filename, "r")
-questions = json.load(questions)
+# filename = os.path.join(app.static_folder, 'qv.json')
+# questions = open(filename, "r")
+# questions = json.load(questions)
 
 @app.route('/')
 @app.route('/welcome')
@@ -39,9 +39,14 @@ def complete():
 def dv(qvid):
     filename='qv'+str(qvid)+'.js'
     url_for('static', filename=filename)
+    json_filename='qv'+str(qvid)+'.json'
+    url_for('static', filename=json_filename)
     url_for('static', filename='qv.css')
     url_for('static', filename='loading.gif')
     url_for('static', filename='jquery-magnet.js')  
+    q_file = os.path.join(app.static_folder, ('qv'+str(qvid)+'.json'))
+    questions = open(q_file, "r")
+    questions = json.load(questions)
     return render_template('qv.html', q_list = questions['questions'],filename=filename)
 
 @app.route('/api/welcome')
@@ -60,6 +65,17 @@ def submit_qv598():
     mongo.db.result_598.insert_one(insert_data)
     return jsonify({'ok': True}), 200
 
+@app.route('/submit_qv5982', methods=['POST'])
+def submit_qv5982():
+    data = request.json
+    uid = request.cookies.get('UserId')
+    insert_data = {
+        "userid": uid,
+        "form": "qv5982",
+        "results":data
+    }
+    mongo.db.result_5982.insert_one(insert_data)
+    return jsonify({'ok': True}), 200
 
 @app.route('/api/updateScript', methods=['POST'])
 def update_script():
@@ -84,7 +100,7 @@ def results():
     agg = {}
     for s in mongo.db.result_598.find():
         for vote in s['results']:
-            pprint(vote)
+            #pprint(vote)
             item = vote['name']
             item = lookup[item]
             value = int(vote["value"])
@@ -92,7 +108,47 @@ def results():
                 agg[item] = value
             else:
                 agg[item] += value
-    pprint(agg)
+    #pprint(agg)
+
+    insert_data = []
+    for key in agg:
+        insert_data.append({"group": key, "value": agg[key]})
+
+    return render_template('results.html', data=insert_data)
+
+@app.route('/paper-results')
+def results2():
+    lookup = {"1)": "1/18",
+              "2)": "2/01",
+              "3)": "2/08",
+              "4)": "2/13",
+              "5)": "2/15",
+              "6)": "2/20",
+              "7)": "2/27",
+              "8)": "3/01-1",
+              "9)": "3/01-2",
+              "10)": "3/06",
+              "11)": "3/08",
+              "12)": "3/13",
+              "13)": "3/15",
+              "14)": "3/27",
+              "15)": "3/29",
+              "16)": "4/03",
+              "17)": "4/05",
+              "18)": "4/10",
+              "19)": "4/12"}
+    agg = {}
+    for s in mongo.db.result_5982.find():
+        for vote in s['results']:
+            #pprint(vote)
+            item = vote['name']
+            item = lookup[item]
+            value = int(vote["value"])
+            if item not in agg:
+                agg[item] = value
+            else:
+                agg[item] += value
+    #pprint(agg)
 
     insert_data = []
     for key in agg:

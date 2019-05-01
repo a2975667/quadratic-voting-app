@@ -1,7 +1,9 @@
 $("#qv_form").submit(function (event) {
 	var retVal = confirm("Do you want to continue ?");
 		if( retVal == true ) {
-			var next_url = '/complete';
+			var next_url = the_next_url;
+			//console.log(the_next_url)
+			//var next_url = '/complete';
 			// Cookies.set('next', JSON.stringify(seq));
 		
 			var formData = JSON.stringify($("#qv_form").serializeArray());

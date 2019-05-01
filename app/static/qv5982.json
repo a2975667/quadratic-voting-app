@@ -1,0 +1,117 @@
+{"questions":[
+    {
+        "type":"text",
+        "title":"Networks & Game Theory",
+        "content": "<ul style='margin-left:1em; font-size:1.2em'> <li> <b> 1/18 [Networks primer]</b> </br> <span style='margin-left: 1em'> D. Easley and J. Kleinberg. Networks, Crowds, and Markets: Reasoning About a Highly Connected World.</span></li><li></ul>"
+    },
+    {
+        "qid":1,
+        "type":"qv",
+        "question":"",
+        "options":[
+            "1) 1/18"
+        ]
+    },
+    {
+        "type": "text",
+        "title": "Mechanism Design",
+        "content": "<ul style='margin-left:1em; font-size:1.2em'> <li> <b> 2/01 [Mechanism design intro 1]</b> </br> <span style='margin-left: 1em'> Roughgarden, T. (2016). Twenty lectures on algorithmic game theory.</span></li><li></ul>"
+    },
+    {
+        "qid":2,
+        "type":"qv",
+        "question": "",
+        "options":[
+            "2) 2/01"
+        ]
+    },
+    {
+        "type": "text",
+        "title": "Individual decision making",
+        "content": "<ul style='margin-left:1em; font-size:1.2em'> <li> <b> 2/08 [Behavioral economics]</b> </br> <span style='margin-left: 1em'> D. Kahneman. A perspective on judgment and choice: Mapping bounded rationality.</span></li><li> <b> 2/13 [Bounded rationality]</b> </br> <span style='margin-left: 1em'> Aumann, R. J. (1997). Rationality and bounded rationality.</span></li><li> <b> 2/15 [Decision making & Scarcity]</b> </br> <span style='margin-left: 1em'> A. K. Shah, E. Shafir, and S. Mullainathan. Scarcity frames value.</span></li><li> <b> 2/20 [Complexity and rationality]</b> </br> <span style='margin-left: 1em'> Papadimitriou, C. H. and Yannakakis, M. (1994). On complexity as bounded rationality (extended abstract).</span></li></ul>"
+    },
+    {
+        "qid":3,
+        "type":"qv",
+        "question": "",
+        "options":[
+            "3) 2/08",
+            "4) 2/13",
+            "5) 2/15",
+            "6) 2/20"
+        ]
+    },
+    {
+        "type": "text",
+        "title": "Social choice (voting)",
+        "content": "<ul style='margin-left:1em; font-size:1.2em'> <li> <b> 2/27 [Quadratic voting]</b> </br> <span style='margin-left: 1em'> Lalley, S. P. and Weyl, E. G. (2018). Quadratic voting: How mechanism design can radicalize democracy.</span></li><li> <b> 3/01 [Knapsack voting]</b> </br> <span style='margin-left: 1em'> Goel, A., Krishnaswamy, A. K., Sakshuwong, S., and Aitamurto, T. (2015). Knapsack voting.</span></br><span style='margin-left: 1em'>Goel, A., Krishnaswamy, A.K. and Sakshuwong, S., 2016. Budget aggregation via knapsack voting: welfare-maximization and strategy-proofness.</span></li><li> <b> 3/06 [Participatory budgeting, fairness]</b> </br> <span style='margin-left: 1em'> Fain, B., Munagala, K., and Shah, N. (2018). Fair allocation of indivisible public goods.</span></li></ul>"
+    },
+    {
+        "qid":4,
+        "type":"qv",
+        "question": "",
+        "options":[
+            "7) 2/27",
+            "8) 3/01-1",
+            "9) 3/01-2",
+            "10) 3/-6"
+        ]
+    },
+    {
+        "type": "text",
+        "title": "Social signals",
+        "content": "<ul style='margin-left:1em; font-size:1.2em'> <li> <b> 3/08 [Badges 1]</b> </br> <span style='margin-left: 1em'> Anderson, A., Huttenlocher, D., Kleinberg, J., and Leskovec, J. (2013). Steering user behavior with badges.</span></li><li> <b> 3/13 [Foregrounding social norms]</b> </br> <span style='margin-left: 1em'> Goldstein, N. J., Cialdini, R. B., and Griskevicius, V. (2008). A room with a viewpoint: Using social norms to motivate environmental conservation in hotels.</span></li><li> <b> 3/15 [Badges 2]</b> </br> <span style='margin-left: 1em'> D. Easley and A. Ghosh. Incentives, gamification, and game theory: An economic approach to badge design.</span></li></ul>"
+    },
+    {
+        "qid":4,
+        "type":"qv",
+        "question": "",
+        "options":[
+            "11) 3/08",
+            "12) 3/13",
+            "13) 3/15"
+        ]
+    },
+    {
+        "type": "text",
+        "title": "Broader ideas from algorithmic game theory",
+        "content": "<ul style='margin-left:1em; font-size:1.2em'> <li> <b> 3/27 [The Price of Anarchy (what if there were no mechanisms?)]</b> </br> <span style='margin-left: 1em'> Roughgarden, T. (2016). Selfish Routing and the Price of Anarchy, Twenty lectures on algorithmic game theory.</span></li></ul>"
+    },
+    {
+        "qid":4,
+        "type":"qv",
+        "question": "",
+        "options":[
+            "14) 3/27"
+        ]
+    },
+    {
+        "type": "text",
+        "title": "Macroscopic behavior in a network",
+        "content": "<ul style='margin-left:1em; font-size:1.2em'> <li> <b> 3/29 [Behavior and network structure]</b> </br> <span style='margin-left: 1em'> Granovetter, M. (1985). Economic action and social structure: The problem of embeddedness.</span></li><li> <b> 4/03 [Diffusion of behavior in a network]</b> </br> <span style='margin-left: 1em'> N. Immorlica, J. Kleinberg, M. Mahdian, and T. Wexler. The role of compatibility in the diffusion of technologies through social networks.</span></li><li> <b> 4/05 [Collective action]</b> </br> <span style='margin-left: 1em'> Chwe, M. (1999). Structure and Strategy in Collective Action.</span></li></ul>"
+    },
+    {
+        "qid":4,
+        "type":"qv",
+        "question": "",
+        "options":[
+            "15) 3/29",
+            "16) 4/03",
+            "17) 4/05"
+        ]
+    },
+    {
+        "type": "text",
+        "title": "Policy",
+        "content": "<ul style='margin-left:1em; font-size:1.2em'> <li> <b> 4/10 [Choice architecture, nudges]</b> </br> <span style='margin-left: 1em'> R. H. Thaler, C. R. Sunstein, and J. P. Balz. Choice architecture.</span></li><li> <b> 4/12 [The challenge of fairness in CS]</b> </br> <span style='margin-left: 1em'> Selbst, A. D., Boyd, D., Friedler, S. A., Venkatasubramanian, S., and Vertesi, J. (2019). Fairness and abstraction in sociotechnical systems.</span></li></ul>"
+    },
+    {
+        "qid":4,
+        "type":"qv",
+        "question": "",
+        "options":[
+            "18) 4/10",
+            "19) 4/12"
+        ]
+    }
+]}
