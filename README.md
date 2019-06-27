@@ -13,3 +13,6 @@ FLASK_APP=app.py FLASK_DEBUG=1 python -m flask run
 ## Know issues
 - No documentation
 - Requires slight hardcode when routing
+
+## Note
+This is a prototype for an on going research project.
